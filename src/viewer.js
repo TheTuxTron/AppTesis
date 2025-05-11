@@ -19,6 +19,7 @@ import {
 	Vector3,
 	WebGLRenderer
 } from 'three';
+
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
@@ -28,17 +29,21 @@ import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
 
+
 import { GUI } from 'dat.gui';
 
-import { environments } from './environments.js';
+const environments = [
+	{ id: '', name: 'None', path: null },
+	{ id: 'neutral', name: 'Neutral', path: null },
+  ];
+  
 
 const DEFAULT_CAMERA = '[default]';
 
 const MANAGER = new LoadingManager();
 const THREE_PATH = `https://unpkg.com/three@0.${REVISION}.x`;
-const DRACO_LOADER = new DRACOLoader(MANAGER).setDecoderPath(
-	`${THREE_PATH}/examples/jsm/libs/draco/gltf/`,
-);
+const DRACO_LOADER = new DRACOLoader(MANAGER).setDecoderPath('draco/');
+
 const KTX2_LOADER = new KTX2Loader(MANAGER).setTranscoderPath(
 	`${THREE_PATH}/examples/jsm/libs/basis/`,
 );
