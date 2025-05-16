@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (videoId) {
             video.src = `https://drive.google.com/file/d/${videoId}/preview`;
         } else {
-            alert("No se encontró el video en YouTube para este estado");
+            alert("No se encontró el video en Drive para este estado");
         }
     } else {
         alert("No se cargó correctamente el video de la simulación");
